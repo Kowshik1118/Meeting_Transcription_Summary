@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Meeting Transcription & Summary</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+<div class="container">
+    <header>
+        <h1>🎙️ Meeting Transcription & Summary</h1>
+        <p>Convert speech into text, analyze the transcript, and generate a meeting summary.</p>
+    </header>
+
+    <section class="card">
+        <label for="meetingTitle">Meeting Title</label>
+        <input id="meetingTitle" type="text" placeholder="Example: Project Review Meeting">
+
+        <label for="transcript">Meeting Transcript</label>
+        <textarea id="transcript" placeholder="Type your transcript or click Start Recording and speak..."></textarea>
+
+        <div class="buttons">
+            <button id="startBtn" class="primary">🎙 Start Recording</button>
+            <button id="stopBtn" class="danger" disabled>⏹ Stop</button>
+            <button id="analyzeBtn" class="success">🔍 Analyze</button>
+            <button id="saveBtn" class="dark">💾 Save Meeting</button>
+            <button id="clearBtn" class="light">Clear</button>
+        </div>
+
+        <p id="status">Ready.</p>
+    </section>
+
+    <section id="results" class="card hidden">
+        <h2>📊 Meeting Analysis</h2>
+
+        <div class="stats">
+            <div><strong id="wordCount">0</strong><span>Words</span></div>
+            <div><strong id="sentenceCount">0</strong><span>Sentences</span></div>
+            <div><strong id="keywordCount">0</strong><span>Keywords</span></div>
+            <div><strong id="actionCount">0</strong><span>Action Items</span></div>
+        </div>
+
+        <h3>📝 Automatic Summary</h3>
+        <div id="summary" class="box"></div>
+
+        <h3>🔑 Important Keywords</h3>
+        <div id="keywords" class="tags"></div>
+
+        <h3>✅ Action Items</h3>
+        <ul id="actions"></ul>
+    </section>
+
+    <section class="card">
+        <h2>📚 Saved Meetings</h2>
+        <div id="savedMeetings">Loading...</div>
+    </section>
+
+    <footer>
+        Meeting Transcription & Summary System | Python + Flask + Web Speech API
+    </footer>
+</div>
+
+<script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
